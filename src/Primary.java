@@ -18,6 +18,46 @@ public class Primary {
 	ArrayList<Integer> helm = new ArrayList<>(); // only for motorcycle minimum 1
 
 	public Primary() {
+		int option;
+		do {
+			welcome();
+			option = forOption();
+			if (option == 1) {
+				input();
+			} else if (option == 2) {
+				view();
+			}
+		} while (option != 3);
+		System.out.println("Application is Done!");
+
+	}
+
+	void welcome() {
+		System.out.println("\nPT Musang");
+		System.out.println("===============");
+		System.out.println("1. Input Vehicle");
+		System.out.println("2. View Vehicle");
+		System.out.println("3. Exit");
+		System.out.print(">> ");
+	}
+
+	Integer forOption() {
+
+		int choose = 0;
+		do {
+			try {
+				System.out.print(">> ");
+				choose = scan.nextInt();
+				scan.nextLine();
+			} catch (Exception e) {
+				System.out.println("Only number 1, 2, 3!");
+			}
+		} while (choose < 1 || choose > 3);
+
+		return choose;
+	}
+
+	void input() {
 		System.out.println("PT Musang\n");
 
 		String tempVehicleType;
@@ -88,7 +128,6 @@ public class Primary {
 			carType.add(tempCarType);
 
 		} else if (tempVehicleType.equals("Motorcycle")) {
-
 			String tempVehicleBrand;
 			do {
 				System.out.print("Input Brand [ char more than 5 ]: ");
@@ -142,6 +181,7 @@ public class Primary {
 
 		System.out.println("ENTER to return");
 		scan.nextLine();
+
 	}
 
 	void view() {
