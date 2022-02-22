@@ -18,46 +18,6 @@ public class Primary {
 	ArrayList<Integer> helm = new ArrayList<>(); // only for motorcycle minimum 1
 
 	public Primary() {
-		int option;
-		do {
-			welcome();
-			option = forOption();
-			if (option == 1) {
-				input();
-			} else if (option == 2) {
-				view();
-			}
-		} while (option != 3);
-		System.out.println("Application is Done!");
-
-	}
-
-	void welcome() {
-		System.out.println("\nPT Musang");
-		System.out.println("===============");
-		System.out.println("1. Input Vehicle");
-		System.out.println("2. View Vehicle");
-		System.out.println("3. Exit");
-		System.out.print(">> ");
-	}
-
-	Integer forOption() {
-
-		int choose = 0;
-		do {
-			try {
-				System.out.print(">> ");
-				choose = scan.nextInt();
-				scan.nextLine();
-			} catch (Exception e) {
-				System.out.println("Only number 1, 2, 3!");
-			}
-		} while (choose < 1 || choose > 3);
-
-		return choose;
-	}
-
-	void input() {
 		System.out.println("PT Musang\n");
 
 		String tempVehicleType;
@@ -67,42 +27,42 @@ public class Primary {
 		} while (!tempVehicleType.equals("Car") && !tempVehicleType.equals("Motorcycle"));
 		vehicleType.add(tempVehicleType);
 
-		String tempVehicleBrand;
-		do {
-			System.out.print("Input Brand [ char more than 5 ]: ");
-			tempVehicleBrand = scan.nextLine();
-		} while (tempVehicleBrand.length() <= 4);
-		vehicleBrand.add(tempVehicleBrand);
-
-		String tempName;
-		do {
-			System.out.print("Input name [ char more than 5 ]: ");
-			tempName = scan.nextLine();
-		} while (tempName.length() <= 4);
-		name.add(tempName);
-
-		String tempLicenseNumber;
-		do {
-			System.out.print("Input License Number: ");
-			tempLicenseNumber = scan.nextLine();
-		} while (tempLicenseNumber.contains(" ") && tempLicenseNumber.contains(" "));
-		licenseNumber.add(tempLicenseNumber);
-
-		int tempTopSpeed;
-		do {
-			System.out.print("Input Top Speed [100 <= topSpeed <= 250]: ");
-			tempTopSpeed = scan.nextInt();
-		} while (!(tempTopSpeed >= 100 && tempTopSpeed <= 250));
-		topSpeed.add(tempTopSpeed);
-
-		int tempGasCap;
-		do {
-			System.out.print("Input gas capacity [30 <= gasCap <= 60]: ");
-			tempGasCap = scan.nextInt();
-		} while (!(tempGasCap >= 30 && tempGasCap <= 60));
-		gasCap.add(tempGasCap);
-
 		if (tempVehicleType.equals("Car")) {
+			String tempVehicleBrand;
+			do {
+				System.out.print("Input Brand [ char more than 5 ]: ");
+				tempVehicleBrand = scan.nextLine();
+			} while (tempVehicleBrand.length() <= 4);
+			vehicleBrand.add(tempVehicleBrand);
+
+			String tempName;
+			do {
+				System.out.print("Input name [ char more than 5 ]: ");
+				tempName = scan.nextLine();
+			} while (tempName.length() <= 4);
+			name.add(tempName);
+
+			String tempLicenseNumber;
+			do {
+				System.out.print("Input License Number: ");
+				tempLicenseNumber = scan.nextLine();
+			} while (tempLicenseNumber.contains(" ") && tempLicenseNumber.contains(" "));
+			licenseNumber.add(tempLicenseNumber);
+
+			int tempTopSpeed;
+			do {
+				System.out.print("Input Top Speed [100 <= topSpeed <= 250]: ");
+				tempTopSpeed = scan.nextInt();
+			} while (!(tempTopSpeed >= 100 && tempTopSpeed <= 250));
+			topSpeed.add(tempTopSpeed);
+
+			int tempGasCap;
+			do {
+				System.out.print("Input gas capacity [30 <= gasCap <= 60]: ");
+				tempGasCap = scan.nextInt();
+			} while (!(tempGasCap >= 30 && tempGasCap <= 60));
+			gasCap.add(tempGasCap);
+
 			int tempWheel;
 			do {
 				System.out.print("Input wheel [4 <= wheel <= 6]: ");
@@ -128,6 +88,42 @@ public class Primary {
 			carType.add(tempCarType);
 
 		} else if (tempVehicleType.equals("Motorcycle")) {
+
+			String tempVehicleBrand;
+			do {
+				System.out.print("Input Brand [ char more than 5 ]: ");
+				tempVehicleBrand = scan.nextLine();
+			} while (tempVehicleBrand.length() <= 4);
+			vehicleBrand.add(tempVehicleBrand);
+
+			String tempName;
+			do {
+				System.out.print("Input name [ char more than 5 ]: ");
+				tempName = scan.nextLine();
+			} while (tempName.length() <= 4);
+			name.add(tempName);
+
+			String tempLicenseNumber;
+			do {
+				System.out.print("Input License Number: ");
+				tempLicenseNumber = scan.nextLine();
+			} while (tempLicenseNumber.contains(" ") && tempLicenseNumber.contains(" "));
+			licenseNumber.add(tempLicenseNumber);
+
+			int tempTopSpeed;
+			do {
+				System.out.print("Input Top Speed [100 <= topSpeed <= 250]: ");
+				tempTopSpeed = scan.nextInt();
+			} while (!(tempTopSpeed >= 100 && tempTopSpeed <= 250));
+			topSpeed.add(tempTopSpeed);
+
+			int tempGasCap;
+			do {
+				System.out.print("Input gas capacity [30 <= gasCap <= 60]: ");
+				tempGasCap = scan.nextInt();
+			} while (!(tempGasCap >= 30 && tempGasCap <= 60));
+			gasCap.add(tempGasCap);
+
 			int tempWheel;
 			do {
 				System.out.print("Input wheel [2 <= wheel <= 3]: ");
@@ -155,7 +151,7 @@ public class Primary {
 		System.out.println("|--------------------------------|");
 
 		for (int i = 0; i < name.size(); i++) {
-			System.out.printf("|%-5s|%-10s|%-15s|\n", i + 1, number.get(i), vehicleType.get(i), name.get(i));
+			System.out.printf("|%-5s|%-10s|%-15s|\n", i + 1, vehicleType.get(i), name.get(i));
 			System.out.println("|--------------------------------|");
 		}
 	}
