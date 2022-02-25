@@ -277,7 +277,7 @@ public class Primary {
 				int price;
 				System.out.println("Input price of helm: Rp");
 				price = scan.nextInt();
-				
+
 				// Then print "Price : <Price>"
 				System.out.println("Price : " + price);
 
