@@ -8,6 +8,7 @@ import Data.Motorcycle;
 
 public class Primary {
 	// Michael Edi Lee - 2540123901
+	// BNCC2101001
 	// Kelas LnT Mobile App Development - F
 	// Praetorian : Nelsen
 	// Due Date 27 Feb 2022
