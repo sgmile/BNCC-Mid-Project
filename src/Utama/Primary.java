@@ -1,4 +1,10 @@
-import java.util.*;
+package Utama;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import Data.Car;
+import Data.Motorcycle;
 
 public class Primary {
 	// Michael Edi Lee - 2540123901
@@ -8,7 +14,6 @@ public class Primary {
 
 	Scanner scan = new Scanner(System.in);
 
-	ArrayList<Integer> number = new ArrayList<>();
 	ArrayList<String> vehicleType = new ArrayList<>(); // Car or Motorcycle
 	ArrayList<String> vehicleBrand = new ArrayList<>();; // minimum 5character
 	ArrayList<String> name = new ArrayList<>();; // minimum 5character
@@ -199,132 +204,86 @@ public class Primary {
 			System.out.println("|--------------------------------|");
 		}
 
-		
-		
-//		FIX STARTING FROM HERE
-		
+//				FIX STARTING FROM HERE
 		int number;
+
 		do {
 			System.out.println("Pick a vehicle number to test drive [ 0 - " + vehicleType.size() + "] ");
-			System.out.print("[Enter '0' to exit]: ");
-			number = scan.nextInt();
+			System.out.println("[Enter '0' to exit]: ");
+			number = scan.nextInt() - 1;
 			scan.nextLine();
-			if (number == 0) {
-				System.out.println("Application is Done!");
+
+			String a = vehicleType.get(number);
+
+//			if (number == -1) {
+//				System.out.println("Application is Done!");
+//			} else 
+			if (a.equals("Car")) {
+				vehicleBrand.get(number);
+				name.get(number);
+				licenseNumber.get(number);
+				carType.get(number);
+				gasCap.get(number);
+				topSpeed.get(number);
+				wheel.get(number);
+				entertainmentSystem.get(number);
+
+				System.out.print("Brand : ");
+				System.out.println(vehicleBrand.get(number));
+
+				System.out.println("Brand : " + vehicleBrand.get(number));
+				System.out.println("Name : " + name.get(number));
+				System.out.println("License Plate : " + licenseNumber.get(number));
+				System.out.println("Type : " + vehicleType.get(number));
+				System.out.println("Gas Capacity : " + gasCap.get(number));
+				System.out.println("Top Speed : " + topSpeed.get(number));
+				System.out.println("Wheel(s) : " + wheel.get(number));
+				System.out.println("Entertainment System : " + entertainmentSystem.get(number));
+
+				if (carType.get(number).equals("Supercar")) {
+					Car c = new Car();
+					System.out.println(c.fastCar());
+				} else {
+					Car c = new Car();
+					System.out.println(c.notFastCar());
+				}
+
+			} else if (a.equals("Motorcycle")) {
+				vehicleBrand.get(number);
+				name.get(number);
+				licenseNumber.get(number);
+				carType.get(number);
+				gasCap.get(number);
+				topSpeed.get(number);
+				wheel.get(number);
+				helm.get(number);
+
+				System.out.println("Brand : " + vehicleBrand.get(number));
+				System.out.println("Name : " + name.get(number));
+				System.out.println("License Plate : " + licenseNumber.get(number));
+				System.out.println("Type : " + vehicleType.get(number));
+				System.out.println("Gas Capacity : " + gasCap.get(number));
+				System.out.println("Top Speed : " + topSpeed.get(number));
+				System.out.println("Wheel(s) : " + wheel.get(number));
+				System.out.println("Helm : " + helm.get(number));
+
+				// Motorcycle, "<name> is standing!"
+				Motorcycle m = new Motorcycle();
+				System.out.print(name + " ");
+				System.out.println(m.motor());
+
+				// If on motorcycle, Ask to input price of Helmet
+				int price;
+				System.out.println("Input price of helm: Rp");
+				price = scan.nextInt();
+				
+				// Then print "Price : <Price>"
+				System.out.println("Price : " + price);
+
 			}
-		} while (number > +vehicleType.size());
 
-		if (vehicleType.get(number).equals("Car")) {
-			number -= 1;
-
-			System.out.println("Brand : " + vehicleBrand.get(number));
-			System.out.println("Name : " + name.get(number));
-			System.out.println("License Plate : " + licenseNumber.get(number));
-			System.out.println("Type : " + vehicleType.get(number));
-			System.out.println("Gas Capacity : " + gasCap.get(number));
-			System.out.println("Top Speed : " + topSpeed.get(number));
-			System.out.println("Wheel(s) : " + wheel.get(number));
-			System.out.println("Entertainment System : " + entertainmentSystem.get(number));
-
-			// Use OOP "Turning on entertainment system...
-
-			// But on Supercar. "Boosting!"
-
-		} else if (vehicleType.get(number).equals("Motorcycle")) {
-			number -= 1;
-
-			System.out.println("Brand : " + vehicleBrand.get(number));
-			System.out.println("Name : " + name.get(number));
-			System.out.println("License Plate : " + licenseNumber.get(number));
-			System.out.println("Type : " + vehicleType.get(number));
-			System.out.println("Gas Capacity : " + gasCap.get(number));
-			System.out.println("Top Speed : " + topSpeed.get(number));
-			System.out.println("Wheel(s) : " + wheel.get(number));
-			System.out.println("Helm : " + helm.get(number));
-
-			// Motorcycle, "<name> is standing!"
-
-			// If on motorcycle, Ask to input price of Helmet
-			// Then print "Price : <Price>"
-
-			vehicleBrand.remove(number);
-			name.remove(number);
-			licenseNumber.remove(number);
-			vehicleType.remove(number);
-			gasCap.remove(number);
-			topSpeed.remove(number);
-			wheel.remove(number);
-			entertainmentSystem.remove(number);
-		}
-
+		} while (number > vehicleType.size());
 	}
-	
-
-//	void menu2() {
-//		if(namesList.isEmpty()) {
-//			System.out.println("Movie list is empty!");
-//		}else {
-//			for(int i = 0; i < namesList.size() - 1; i++) {
-//				for(int j = 0; j < namesList.size() - i - 1; j++) {
-//					if(ratingsList.get(j).compareTo(ratingsList.get(j + 1)) < 0) {
-//						Collections.swap(namesList, j, j + 1);
-//						Collections.swap(genresList, j, j + 1);
-//						Collections.swap(ratingsList, j, j + 1);
-//						Collections.swap(statusList, j, j + 1);
-//					}
-//				}
-//			}
-//			
-//			for(int i = 0; i < namesList.size(); i++) {
-//				System.out.println( "| " + (i + 1) + " | " + namesList.get(i) + " | " + genresList.get(i) + " | " + ratingsList.get(i) + " | " + statusList.get(i) + " |");
-//			}
-//		}
-//	}
-
-//	void menu3(String idNumber) {
-//		if(namesList.isEmpty()) {
-//			System.out.println("Movie list is empty!");
-//		}else {
-//			menu2();
-//			
-//			int rentChoice = 0;
-//			
-//			do {
-//				System.out.print("Which movie do you want to rent? [1-1]\n>>");
-//				rentChoice = scan.nextInt();
-//				scan.nextLine();
-//			}while(rentChoice < 1 || rentChoice > namesList.size());
-//			
-//			rentChoice -= 1;
-//			namesList.get(rentChoice);
-//			genresList.get(rentChoice);
-//			ratingsList.get(rentChoice);
-//			idList.get(rentChoice);
-//			
-//			int rentDuration = 0;
-//			
-//			do {
-//				System.out.print("How many days do you want to borrow the movie> [1-7]\n>>");
-//				rentDuration = scan.nextInt();
-//				scan.nextLine();
-//			}while(rentDuration < 1 || rentDuration > 7);
-//			
-//			double basePrice = 1000 * ratingsList.get(rentChoice);
-//			double additionalPrice = 2000 * rentDuration;
-//			double price = basePrice + additionalPrice;
-//			
-//			System.out.println("Rent Movie");
-//			System.out.println("==========");
-//			System.out.println("ID: TR-" + idList.get(rentChoice));
-//			System.out.println("Movie: " + namesList.get(rentChoice));
-//			System.out.println("Genre: " + genresList.get(rentChoice));
-//			System.out.println("Rating: " + ratingsList.get(rentChoice));
-//			System.out.println("Price: " + price);
-//			
-//			statusList.set(rentChoice, "Not available");
-//		}
-//	}
-
 
 	public static void main(String[] args) {
 		new Primary();
